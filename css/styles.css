@@ -1,0 +1,338 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*NOTRE HEADER*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    background-color:#e67e22;
+}
+
+.logo{
+    margin-left: 1.5rem;
+    font-size: large;
+}
+
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav a{
+    text-decoration: none;
+    padding: 1rem;
+    color: white;
+    margin-right: 1rem;
+}
+
+.nav a:hover{
+    background-color: gray;
+    color: white;
+}
+
+.nav-toggle{
+    display: none;
+}
+
+/*gestion responsivité de notre navbar*/
+@media(max-width:700px){
+
+.nav-toggle{
+    display: flex;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e67e22;
+    z-index: 100;
+    transform: translateX(100%);
+    /*transition: transform 250ms cubic-bezier(.5, 0, .5, 1);*/
+
+}
+
+.nav ul{
+    list-style: none;
+    display: flex;
+    height: 60%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+
+.nav-toggle{
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 2em;
+    z-index: 1000;
+}
+
+.nav-open .nav{
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle{
+    position: fixed;
+}
+
+.nav-open .hamburger{
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after{
+    opacity: 0;
+}
+
+
+
+.hamburger{
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background:black;
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+
+}
+
+.hamburger::before,
+.hamburger::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   right: 0;
+}
+
+.hamburger::before {top: 6px;}
+.hamburger::after {bottom: 6px;}
+
+}
+
+
+
+/*NOTRE CONTENU*/
+main{
+    padding: 2rem;
+}
+
+
+
+/*gestion APROPOS*/
+.welcome{
+    text-align: center;
+}
+.apropos{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+.apropos h2{
+    color: blue;
+}
+
+.name, .skills, .description{
+    border: 1px solid orange;
+    padding: 1rem;
+}
+
+.name img{
+    /*border-radius: 50%;
+    width: 50%;*/
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+}
+
+
+.skills {
+    align-items: center;
+}
+
+.name{
+    text-align: center;
+}
+
+.languages p{
+    align-items: center;
+}
+
+.languages i{
+    font-size: 2.5rem;
+}
+
+.description h2{
+    text-align: center;
+}
+
+.description{
+    text-align: justify;
+}
+
+
+.description h1{
+    text-align: center;
+}
+
+
+.description{
+    grid-column: 1/3;
+}
+
+/*responsivité a propos*/
+@media(max-width: 600px) {
+
+    .apropos{
+        grid-template-areas: 
+        "haut haut"
+        "bas bas";
+    }
+    .name img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .name{
+        grid-area: haut;
+    }
+
+    .skills {
+        grid-area: bas;
+    }
+    
+    .description{
+        
+    }
+}
+
+@media(max-width:400px){
+   h1{
+       font-size: 1.2rem;
+       
+   }
+
+   h2{
+    font-size: 1rem;
+   }
+
+   h3{
+    font-size: .8rem;
+   }
+}
+
+
+/*MES PROJETS*/
+
+.projets h1{
+    text-align: center;
+}
+
+.my-work{
+    padding: 2rem;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    text-align: center;
+}
+
+.my-work img{
+  width: 70%;
+}
+
+.work{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.work a{
+    padding: .3rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    border: 1px solid blue;
+}
+
+.work h3{
+    color: white;
+}
+
+@media(max-width: 600px){
+    .my-work{
+        grid-template-areas: 
+        "premier premier"
+        "deuxieme deuxieme"
+        "troisieme troisieme"
+        "quatrieme quatrieme";
+    }
+
+    .work1{
+        grid-area: premier;
+    }
+
+    .work2{
+        grid-area: deuxieme;
+    }
+
+    .work3{
+        grid-area: troisieme;
+    }
+
+    .work4{
+        grid-area: quatrieme;
+    }
+}
+
+
+/*me contacter*/
+
+.contact{
+    text-align: center;
+    background-color: orange;
+    padding: 1rem;
+}
+.contact a{
+    font-size: 5rem;
+    text-align: center;
+    padding: 1rem;
+    color:black;
+}
